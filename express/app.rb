@@ -9,13 +9,11 @@ require 'sinatra/activerecord'
 require './models'
 
 get '/' do
-  @histories = History.all
+  @histories = History.all.limit(10).order("created_at desc")
+  @favorites = History.where(favorite: true)
   erb :form
 end
 
-get '/' do
-  erb :form
-end
 
 get '/list' do
   History.create!(x: params[:x],y: params[:y])
@@ -25,6 +23,7 @@ get '/list' do
    x: params[:x],
    y: params[:y]
   })
+
   res = Net::HTTP.get_response(uri)
   json = JSON.parse(res.body)
   @stations = json["response"]["station"]
@@ -44,5 +43,17 @@ get '/api/station' do
     next: json["response"]["station"][0]["next"]
   }
   json response
+end
 
+post '/:id/delete' do
+    history = History.find(params[:id])
+    history.delete
+    redirect "/"
+end
+
+post '/:id/update' do
+  history = History.find(params[:id])
+  history.favorite = !history.favorite
+  history.sava
+  redirect "/"
 end

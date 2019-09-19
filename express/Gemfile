@@ -6,6 +6,7 @@ gem 'ruby-debug-ide'
 gem 'debase'
 gem 'rcodetools'
 gem 'fastri'
+gem 'pry'
 
 gem 'sinatra'
 gem 'sinatra-contrib'
