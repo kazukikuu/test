@@ -12,7 +12,12 @@
 
 ActiveRecord::Schema.define(version: 2019_09_17_105226) do
 
-# Could not dump table "histories" because of following StandardError
-#   Unknown type 'booleam' for column 'favorite'
+  create_table "histories", force: :cascade do |t|
+    t.float "x"
+    t.float "y"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "favorite", default: false
+  end
 
 end

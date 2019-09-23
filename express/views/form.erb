@@ -3,49 +3,50 @@
 <head>
   <meta charset="UTF-8">
 　<title>フォーム</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
 </head>
 <body>
-<form action="list" method="get">
- <input type="text" name="x" id="x" placeholder="x" />
- <input type="text" name="y" id="y" placeholder="y" />
- <input type="submit" value="検索"　class="btn btn-primary" />
+<div class="continer">
+<form action="list" method="get" class="form-inine">
+ <input type="text" name="x" id="x" placeholder="x" class="form-conrol">
+ <input type="text" name="y" id="y" placeholder="y"  class="form-conrol">
+ <input type="submit" value="検索"　class="btn-primary">
 </form>
   <h2>検索履歴</h2>
-
 <table>
-    <% @histories.each do |history|%>
+  <% @histories.each do |history|%>
     <tr>
+      <td><%= history.x %>,<% history.y %></td>
       <td>
-       <% if histories.favorite %>
-        <form action="<%= histories.id" %>/update" method="post">
-         <input type="submit" value="解除">
+        <% if history.favorite %>
+          <form action="<%= history.id %>/update" method="post">
+           <input type="submit" value="解除">
          </form>
          <% else %>
-　　　　　　<form action="<%= histories.id" %>/update" method="post">
-         <input type="submit" value="お気に入り">
-         </form>
-           <% end %>
+　　　　   <form action="<%= history.id %>/update"  method="post">
+             <input type="submit" value="お気に入り">
+            </form>
+         <% end %>
       </td>
-
-      <td>
-       <form action="<%= histories.id %>/delete" method="post">
-        <input type="submit" value="[x]">
+       <td>
+        <form action="<%= history.id %>/delete" method="post">
+          <input type="submit" value="[x]">
         </form>
       </td>
-    </tr>
-    <% end %>
-  </table>
-  <h2>お気に入り</h2>
+       </tr>
+       <% end %>
+</table>
+  <h2><i class="fas fa-star"></i>お気に入り</h2>
    <ul>
-      <% @favorites.each do |favorite| %>
-      <li><%= favorite.x %>,<%= favorite.y %></li>
-    <% end　%>
+      <% @favorites.each do |favorite|%>
+      <li><%= favorite.x %>, <%= favorite.y %></li>
+    <% end %>
    </ul>
+   </div>
 </body>
 </html>

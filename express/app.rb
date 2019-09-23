@@ -4,9 +4,9 @@ require 'sinatra/reloader' if development?
 require 'open-uri'
 require 'json'
 require 'net/http'
-
 require 'sinatra/activerecord'
 require './models'
+require 'pry'
 
 get '/' do
   @histories = History.all.limit(10).order("created_at desc")
@@ -17,13 +17,12 @@ end
 
 get '/list' do
   History.create!(x: params[:x],y: params[:y])
+
   uri = URI("http://express.heartrails.com/api/json")
   uri.query = URI.encode_www_form({
    method: "getStations",
    x: params[:x],
-   y: params[:y]
-  })
-
+   y: params[:y]})
   res = Net::HTTP.get_response(uri)
   json = JSON.parse(res.body)
   @stations = json["response"]["station"]
@@ -46,14 +45,14 @@ get '/api/station' do
 end
 
 post '/:id/delete' do
-    history = History.find(params[:id])
-    history.delete
-    redirect "/"
+  history = History.find(params[:id])
+  history.delete
+  redirect "/"
 end
 
 post '/:id/update' do
   history = History.find(params[:id])
   history.favorite = !history.favorite
-  history.sava
+  history.save
   redirect "/"
 end
