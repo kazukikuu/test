@@ -1,4 +1,4 @@
-class CreateAnswers < ActiveRecord::Migration[6.0]
+ class CreateAnswers < ActiveRecord::Migration[5.2]
   def change
   　create_table :answers do |t|
     t.string :name
@@ -9,7 +9,8 @@ class CreateAnswers < ActiveRecord::Migration[6.0]
     t.string :date
     t.string :password
     t.text :content
+
     t.timestamps null: false
-    end
+   end
   end
-end
+ end
