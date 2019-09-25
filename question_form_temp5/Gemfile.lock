@@ -1,0 +1,91 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activemodel (6.0.0)
+      activesupport (= 6.0.0)
+    activerecord (6.0.0)
+      activemodel (= 6.0.0)
+      activesupport (= 6.0.0)
+    activesupport (6.0.0)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (>= 0.7, < 2)
+      minitest (~> 5.1)
+      tzinfo (~> 1.1)
+      zeitwerk (~> 2.1, >= 2.1.8)
+    ast (2.4.0)
+    backports (3.15.0)
+    cleanup (0.1.2)
+      bundler (~> 1.12)
+    concurrent-ruby (1.1.5)
+    debase (0.2.4.1)
+      debase-ruby_core_source (>= 0.10.2)
+    debase-ruby_core_source (0.10.5)
+    fastri (0.3.1.1)
+    i18n (1.6.0)
+      concurrent-ruby (~> 1.0)
+    jaro_winkler (1.5.3)
+    minitest (5.12.0)
+    multi_json (1.13.1)
+    mustermann (1.0.3)
+    parallel (1.17.0)
+    parser (2.6.4.1)
+      ast (~> 2.4.0)
+    pg (1.1.4)
+    rack (2.0.7)
+    rack-protection (2.0.7)
+      rack
+    rainbow (3.0.0)
+    rake (12.3.3)
+    rcodetools (0.8.5.0)
+    rubocop (0.74.0)
+      jaro_winkler (~> 1.5.1)
+      parallel (~> 1.10)
+      parser (>= 2.6)
+      rainbow (>= 2.2.2, < 4.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 1.4.0, < 1.7)
+    ruby-debug-ide (0.7.0)
+      rake (>= 0.8.1)
+    ruby-progressbar (1.10.1)
+    sinatra (2.0.7)
+      mustermann (~> 1.0)
+      rack (~> 2.0)
+      rack-protection (= 2.0.7)
+      tilt (~> 2.0)
+    sinatra-activerecord (2.0.14)
+      activerecord (>= 3.2)
+      sinatra (>= 1.0)
+    sinatra-contrib (2.0.7)
+      backports (>= 2.8.2)
+      multi_json
+      mustermann (~> 1.0)
+      rack-protection (= 2.0.7)
+      sinatra (= 2.0.7)
+      tilt (~> 2.0)
+    sqlite3 (1.4.1)
+    thread_safe (0.3.6)
+    tilt (2.0.10)
+    tzinfo (1.2.5)
+      thread_safe (~> 0.1)
+    unicode-display_width (1.6.0)
+    zeitwerk (2.1.10)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  cleanup
+  debase
+  fastri
+  pg
+  rake
+  rcodetools
+  rubocop
+  ruby-debug-ide
+  sinatra
+  sinatra-activerecord
+  sinatra-contrib
+  sqlite3
+
+BUNDLED WITH
+   1.17.2
