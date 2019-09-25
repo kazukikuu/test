@@ -1,6 +1,6 @@
  class CreateAnswers < ActiveRecord::Migration[5.2]
   def change
-    create_table :answers do |t|
+    create_table :answers do |t|
     t.string :name
     t.integer :age
     t.string :grade
@@ -10,7 +10,7 @@
     t.string :password
     t.text :content
 
-    t.timestamps null: false
+    t.timestamps null: false
    end
   end
  end
