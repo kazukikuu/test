@@ -1,14 +1,28 @@
 require 'bundler/setup'
 Bundler.require
 require 'sinatra/reloader' if development?
-require './models/count.rb'
-
-before do
-  if Count.all.size == 0
-    Count.create(number: 0)
-  end
-end
+require 'sinatra/activerecord'
+require './models'
 
 get '/' do
-  'こんにちは'
+erb :index
+end
+
+post '/answers' do
+  Answer.create(
+    name: params[:name],
+    age:  params[:age],
+    gender: params[:gender],
+    grade: params[:grade],
+    email: params[:email],
+    password: params[:passwprd],
+    date: params[:date],
+    content: params[:content]
+  )
+  redirect '/'
+end
+
+get '/answers' do
+  @answers = Answer.all
+  erb :answers
 end

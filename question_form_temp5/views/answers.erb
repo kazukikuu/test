@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>アンケートフォーム|回答結果</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+<body>
+<a href="/">トップに戻る</a>
+<div class="row">
+  <div class="col-lg-8 col-lg-offset-2">
+     <div class="panel panel-default">
+      <div class="panel panel-heading"><span class="glyphiconglyphicon-triangle-right"><span>回答一覧</div>
+        <div class="panel-body">
+　　　　　　　<table class="table">
+          <tr>
+            <th>名前</th>
+             <th>年齢</th>
+              <th>学年</th>
+               <th>性格</th>
+                <th>日付</th>
+                 <th>メールアドレス</th>
+                  <th>パスワード</th>
+                   <th>問い合わせ内容</th>
+          　　</tr>　
+          　　<% @answers.each do |answer| %>　
+              <tr>
+                <td><%= answer.name %></td>
+                <td><%= answer.age %></td>
+                <td><%= answer.grade %></td>
+                <td><%= answer.gender %></td>
+                <td><%= answer.date %></td>
+                <td><%= answer.email %></td>
+                <td><%= answer.password %></td>
+                <td><%= answer.content %></td>
+              </tr>
+            <% end %>
+       </table>
+    </div>
+  </div>
+</body>
+</html>
