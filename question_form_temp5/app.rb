@@ -5,7 +5,7 @@ require 'sinatra/activerecord'
 require './models'
 
 get '/' do
-erb :index
+   erb :index
 end
 
 post '/answers' do
