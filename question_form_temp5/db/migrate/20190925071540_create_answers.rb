@@ -9,7 +9,6 @@ class CreateAnswers < ActiveRecord::Migration[5.2]
     t.string :date
     t.string :password
     t.text :content
-
     t.timestamps null: false
    end
   end
