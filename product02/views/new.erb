@@ -1,0 +1,19 @@
+<div class="container">
+  <form action="/tasks" method="post">
+  　<div class="controls">
+      <div class="form-group">
+       <input type="text" name="title" placeholder="タイトル" class="form-control input-lg"><br>
+       <input type="text" name="due_date" placeholder="締切"  class="form-control input-lg"><br>
+       リスト:
+       <select name="list" class="form-control">
+         <% List.all.each do |list| %>
+               <option value="<%= list.id %>"><%=list.name%></option>
+           <% end %>
+       </select>
+        　</div class="form-group col-lg-4 ">
+          <div>
+          <input class="form-control col-lg-4" type="submit" value="登録">
+      </div>
+    </div>
+ 　</form>
+</div>
