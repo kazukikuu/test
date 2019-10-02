@@ -81,6 +81,6 @@ end
 
 
 get '/mypage' do
-
+  @posts = Post.all
   erb :mypage
 end
