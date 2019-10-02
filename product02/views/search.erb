@@ -1,0 +1,28 @@
+<html>
+<body>
+<div>
+<% if !@musics.empty? %>
+</div>
+<% @musics.each do |t| %>
+<div>
+<img src="<%= t["artworkUrl60"] %>">
+  <p><%= t["artistName"] %></p>
+  <p><%= t["collectionName"] %></p>
+  <p><%= t["trackName"] %></p>
+   <a href="<%= t["previewUrl"] %>">サンプル</a>
+       <form action="/answers" method="post">
+        <input type="hidden" name="image"value="<%= t["artworkUrl100"] %>">
+        <input type="hidden" name="artist"value="<%= t["artistName"] %>" >
+        <input type="hidden" name="album"value="<%= t["collectionName"] %>">
+      　<input type="hidden" name="track"value="<%= t["trackName"] %>">
+        <input type="hidden" name="url"value="<%= t["previewUrl"] %>">
+        <input type="text" name="comment" placeholder="コメント">
+        <input type="submit" value="投稿">
+       </form>
+</div>
+<% end %>
+</div>
+<% end %>
+</div>
+</body>
+</html>
