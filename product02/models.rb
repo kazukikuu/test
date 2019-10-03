@@ -11,5 +11,5 @@ class User < ActiveRecord::Base
 end
 
 class Post < ActiveRecord::Base
-  belong_to :user
+  belongs_to :user
 end

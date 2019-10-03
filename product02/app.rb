@@ -84,3 +84,26 @@ get '/mypage' do
   @posts = Post.all
   erb :mypage
 end
+
+
+get '/delete/:id' do
+  Post.find(params[:id]).delete
+  redirect '/mypage'
+end
+
+get '/edit/:id' do
+  @posts = Post.find(params[:id])
+  erb :edit
+end
+
+post '/edit/:id/update' do
+  post =  Post.find(params[:id])
+  post.comment = params[:comment]
+  post.save
+  redirect '/mypage'
+end
+
+get '/toukou' do
+  @posts = Post.all
+  erb :toukou
+end

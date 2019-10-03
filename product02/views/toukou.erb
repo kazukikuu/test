@@ -1,0 +1,11 @@
+<div>
+    <h1>最近の投稿</h1>
+    <% @posts.each do |t| %>
+      <div>
+        <img src="<%= t.image %>">
+		    <p>artist:<%= t.artist %></p>
+        <p>コメント:<%= t.comment %></p>
+        <p>投稿者:<%= t.user_name %></p>
+      </div>
+    <% end %>
+  </div>
